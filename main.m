@@ -40,7 +40,7 @@ for i  = 1:realizacoes
     desviosAcuracia(i) = std(acuracia);
     
     fprintf('--------------------------------------------------\n');
-    fprintf('REALIZA«√O %d\n', i);
+    fprintf('REALIZA√á√ÉO %d\n', i);
     fprintf('Acuracias de %d Iteracoes: \n', iteracoes);
     fprintf('Acuracia Maxima: %.2f%%. \n', max(acuracia));
     fprintf('Acuracia Media:  %.2f%%. \n', mean(acuracia));
@@ -51,6 +51,6 @@ for i  = 1:realizacoes
 end
 % plotaIris(dados);
 % plotaPDF(dados, 1);
-% plotaRegiaoDecisaoBayes(dados, 1);
+% plotaRegiaoDecisao(dados, 1);
 plotaAcuracia(realizacoes, mediasAcuracia);
 plotaDesvioPadrao(realizacoes, desviosAcuracia);
