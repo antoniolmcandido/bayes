@@ -45,26 +45,26 @@ function plotaRegiaoDecisao(dados, opcao)
 
         nClasses = length(classes); % number of classes
 
-        %% calculando funções de verossimilhança ...
+        %% calculando funÃ§Ãµes de verossimilhanÃ§a ...
             % e probabilidades a posteriori
         switch opcao
-            % caso geral, matriz de covariância ...
+            % caso geral, matriz de covariÃ¢ncia ...
                     % diferentes e prioris diferentes
             case 1 
                 for i = 1:nClasses
                     fu = mvnpdf(regiao,media(i,:),matrizesCovariancia(:,:,i));
                     F(i,:) = priori(:,i) .* fu;
                 end
-            % matriz de covariância diagonal ...
-                % com mesma variância e prioris diferentes
+            % matriz de covariÃ¢ncia diagonal ...
+                % com mesma variÃ¢ncia e prioris diferentes
             case 2 
                 for i = 1:nClasses
                     fu = mvnpdf(regiao,media(i,:),...
                          diag(diag(ones(atributos))).*.5);
                     F(i,:) = priori(:,i) .* fu;
                 end
-            % matriz de covariância diagonal ...
-                % com mesma variância e equiprovável
+            % matriz de covariÃ¢ncia diagonal ...
+                % com mesma variÃ¢ncia e equiprovÃ¡vel
             case 3 
                 priori = ones(1, nClasses)./nClasses;
                 for i = 1:nClasses
@@ -72,7 +72,7 @@ function plotaRegiaoDecisao(dados, opcao)
                          diag(diag(ones(atributos))).*.5);
                     F(i,:) = priori(:,i) .* fu;
                 end
-            case 4 % equiprovável e matriz de covariância diferentes
+            case 4 % equiprovÃ¡vel e matriz de covariÃ¢ncia diferentes
                 priori = ones(1, nClasses)./nClasses;
                 for i = 1:nClasses
                     fu = mvnpdf(regiao,media(i,:),matrizesCovariancia(:,:,i));
